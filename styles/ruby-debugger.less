@@ -17,69 +17,85 @@
   box-orient: vertical;
   -webkit-user-select: none;
   background-color: @inset-panel-background-color;
-  
+
   .rd-scroll-area {
     -webkit-box-flex: 1;
     box-flex: 1;
     overflow: hidden;
     overflow-y: auto;
   }
-  
+
   [rv-toggle-panel] {
     .panel-heading {
       .octicon(chevron-down, 12px);
     }
-    
+
     .panel-body {
       min-height: 2em;
     }
-    
+
     &.collapsed {
       .panel-heading {
         .octicon(chevron-right, 12px);
       }
-      
+
       .panel-body {
         display: none;
       }
     }
   }
-  
+
+  .inset-panel{
+    table{
+      table-layout: fixed;
+      width: 100%
+    }
+
+    tr:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
   .rd-commands {
     white-space: nowrap;
-    
+
     .connect {
       width: 80px;
     }
-    
+
     [class^="rd-icon-"],
     [class*=" rd-icon-"] {
       font-size: 32px;
       margin: 0 -5px;
     }
   }
-  
+
+  .rd-variables {
+    // stripes
+
+    .row-key {
+      padding-right:5px
+    }
+    
+
+  }
+
   .rd-call-stack {
     table {
       table-layout: fixed;
       width: 100%;
     }
-    
-    // stripes
-    tr:nth-child(odd) {
-      background-color: rgba(255, 255, 255, 0.05);
-    }
-    
+
     td {
       vertical-align: baseline;
     }
-    
+
     .row-no {
       width: 25px;
       padding-right: 5px;
       text-align: right;
     }
-    
+
     .row-file {
       font-family: monospace;
     }
@@ -88,30 +104,30 @@
       margin: 0;
       padding: 0;
     }
-    
+
     li {
       list-style: none;
       display: inline-block;
       color: darken(@text-color, 15%)
     }
-    
+
     // make "commands.rb:32" stand out a bit more
     li:last-child {
       color: @text-color-selected;
     }
-    
+
     .current {
       td {
         color: @text-color-selected;
         background-color: @background-color-selected;
       }
-      
+
       li {
         color: @text-color-selected;
       }
     }
   }
-  
+
   .rd-watch-expressions {}
   .rd-variables {}
   .rd-console {}
